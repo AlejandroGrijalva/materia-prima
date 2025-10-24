@@ -15,7 +15,7 @@
         <!-- Sección 1: Formulario -->
         <section id="crear-pedido">
             <h2>Crear nuevo pedido</h2>
-            <form>
+            <form id="form">
                 <div style="grid-column: 1 / -1;">
                     <label for="nombre">Nombre del solicitante:</label>
                     <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez">
@@ -49,7 +49,7 @@
 
         <!-- Sección 2: Tabla -->
         <section id="lista-pedidos">
-            <h2>Nombre del Cliente: </h2>
+            <h2 id="nombreCliente">Nombre del Cliente: </h2>
             <table>
                 <thead>
                     <tr>
@@ -71,7 +71,12 @@
                         <td>$10.00</td>
                     </tr>
                 </tbody>
-               
+                <tfoot>
+                    <tr>
+                        <td colspan="4"></td>
+                        <td style="text-align: right;"><b>Total:</b></td>
+                        <td id="tdTotal"><b>$00.00</b></td>
+                    </tr>
                 </tfoot>
             </table>
         </section>
@@ -80,6 +85,7 @@
             <button type="button">Registrar Pedido</button>
         </section>
     </main>
+    <script src="js/scrip.js"></script>
 </body>
 
 </html>
