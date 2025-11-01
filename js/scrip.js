@@ -3,14 +3,14 @@ window.onload = () => {
     let nombreCliente = document.getElementById("nombreCliente")
     let form = document.querySelector("#form")
     let arr = []
-    
+
     let tablaPrecios = [
-        {id: 1, material:"Acero inoxidable", precio: 2000.50},
-        {id: 2, material:"Plástico ABS", precio: 10.00},
-        {id: 3, material:"Aluminio", precio: 30.00},
-        {id: 4, material:"Cobre", precio: 3000.20}
+        { id: 1, material: "Acero inoxidable", precio: 2000.50 },
+        { id: 2, material: "Plástico ABS", precio: 10.00 },
+        { id: 3, material: "Aluminio", precio: 30.00 },
+        { id: 4, material: "Cobre", precio: 3000.20 }
     ]
-    
+
     txtName.addEventListener("keyup", () => {
         nombreCliente.innerHTML = "Nombre del Cliente: " + txtName.value
     })
@@ -21,25 +21,25 @@ window.onload = () => {
         let cantidad = document.getElementById("cantidad")
         let fecha = document.getElementById("fecha")
         let observaciones = document.getElementById("observaciones")
-        if(txtName.value === ""){
+        if (txtName.value === "") {
             alert("Por favor, complete el nombre del solicitante.")
             return
         }
-        if(material.value === "" ){
+        if (material.value === "") {
             alert("Por favor, complete el material.")
             return
         }
-        if(cantidad.value === "" || cantidad.value <= 0){
+        if (cantidad.value === "" || cantidad.value <= 0) {
             alert("Por favor, ingrese una cantidad válida.")
             return
         }
-        if(fecha.value === ""){
+        if (fecha.value === "") {
             alert("Por favor, seleccione una fecha.")
             return
         }
 
         let precio = tablaPrecios.find(item => item.material === material.value)
-        
+
         arr.push({
             id: arr.length + 1,
             material: material.value,
@@ -55,7 +55,7 @@ window.onload = () => {
         var trs = ''
         var total = 0
 
-        arr.forEach(item =>{
+        arr.forEach(item => {
             total += item.subtotal
             trs += `<tr>
                         <td>${item.id}</td>
@@ -69,7 +69,7 @@ window.onload = () => {
         document.querySelector("tbody").innerHTML = trs
         document.querySelector("#tdTotal").innerHTML = `<b>$${total.toFixed(2)}</b>`
     }
-    if(localStorage.getItem("pedido")){
+    if (localStorage.getItem("pedido")) {
         arr = JSON.parse(localStorage.getItem("pedido"))
         imprimirTabla()
     }
